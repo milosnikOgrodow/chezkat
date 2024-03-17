@@ -1,0 +1,14 @@
+const http = require('http');
+
+const port = process.env.PORT || 3000; // Use PORT from environment variables if available, otherwise default to 3000
+const host = 'localhost'; // Typically 'localhost' for development
+
+const server = http.createServer((req, res) => {
+  res.statusCode = 200;
+  res.setHeader('Content-Type', 'text/plain');
+  res.end('Hello, World!\n');
+});
+
+server.listen(port, host, () => {
+  console.log(`Server running at http://${host}:${port}/`);
+});

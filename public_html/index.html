@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brunches</title>
+    <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700|Lora:400,700|Open+Sans:400,700|Montserrat:400,700|Pacifico|Great+Vibes" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Allura&family=Tangerine:wght@400;700&family=Rochester&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+<div class="navbar" id="navbar">
+    <div class="navbar-links">
+        <a href="#section1">Home</a>
+        <a href="#section2">Menu</a>
+        <!-- Company Icon in the Center -->
+        <div class="logo-placeholder"></div>
+        <a href="#section3">About</a>
+        <a href="#section4">Contact</a>
+    </div>
+    <div class="navbar-icons">
+        <a href="javascript:void(0);" class="hamburger no-hide" onclick="toggleNav()">
+            <i class="fa fa-bars"></i>
+        </a>
+        <a href="#section1" class="nav-icon no-hide">
+            <img src="assets/images/logo_home.png" alt="Company Icon" />
+        </a>
+    </div>
+</div>
+
+<div id="section1" class="section">
+    <div class="home-background-image" style="background-image: url('assets/images/home.jpeg');">
+    </div>
+    <div class="central-text">
+        <h1>Come join the feast</h1>
+        <p>Catering | Brunch | Lunch | Apéro | Company Events</p>
+    </div>
+</div>
+
+<div id="section2" class="section menu">
+    <div class="menu-text"></div>
+    <div class="menu-grid">
+        <div class="menu-category">
+            <div class="category-title">Brunch</div>
+            <div class="category-logo" data-modal-target="#brunchModal" style="background-image: url(assets/images/brunch.png);"></div>
+            <div class="category-description">Brunch lugibugi jest najlepszy zapraszamy wszstkie damy. Serdecznie i niezbytecznie.</div>
+        </div>
+
+        <div class="menu-category">
+            <div class="category-title">Lunch</div>
+            <div class="category-logo" data-modal-target="#lunchModal" style="background-image: url(assets/images/lunch.png);"></div>
+            <div class="category-description">Brunch lugibugi jest najlepszy zapraszamy wszstkie damy. Serdecznie i niezbytecznie.</div>
+        </div>
+        <div class="menu-category">
+            <div class="category-title">Apero</div>
+            <div class="category-logo" data-modal-target="#aperoModal" style="background-image: url(assets/images/apero.png);"></div>
+            <div class="category-description">Brunch lugibugi jest najlepszy zapraszamy wszstkie damy. Serdecznie i niezbytecznie.</div>
+        </div>
+        <div class="menu-category">
+            <div class="category-title">Private events</div>
+            <div class="category-logo" data-modal-target="#privateModal" style="background-image: url(assets/images/private.png);"></div>
+            <div class="category-description">Brunch lugibugi jest najlepszy zapraszamy wszstkie damy. Serdecznie i niezbytecznie.</div>
+        </div>
+    </div>
+</div>
+
+<!-- Modals -->
+<div id="brunchModal" class="modal">
+    <div class="modal-content">
+        <a class="prev" onclick="moveSlide(-1)">&#10094;</a>
+        <a class="next" onclick="moveSlide(1)">&#10095;</a>
+        <span class="close-button">&times;</span>
+        <div class="carousel">
+            <div class="carousel-slides">
+                <div class="slide-container" id="brunch-slide-1"></div>
+                <div class="slide-container" id="brunch-slide-2"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="lunchModal" class="modal">
+    <div class="modal-content">
+        <span class="close-button">&times;</span>
+        <h2>Lunch</h2>
+        <p>Details about lunch catering services...</p>
+    </div>
+</div>
+<div id="aperoModal" class="modal">
+    <div class="modal-content">
+        <span class="close-button">&times;</span>
+        <h2>Apero</h2>
+        <p>Details about apero catering services...</p>
+    </div>
+</div>
+<div id="privateModal" class="modal">
+    <div class="modal-content">
+        <span class="close-button">&times;</span>
+        <h2>Private</h2>
+        <p>Details about private catering services...</p>
+    </div>
+</div>
+
+<div id="section3" class="section about-us">
+    <div class="about-us-container">
+        <div class="about-us-text">
+            <h2>Our Story</h2>
+            <p>Welcome to Chez Kat, where culinary magic happens. Founded in 2010 by Kat herself, a passionate chef with a love for local ingredients and bold flavors, we've been on a mission to deliver unforgettable dining experiences. Our journey began with a small brunch cafe and has since expanded into a full-service catering business, delighting guests at events of all sizes with our signature dishes and impeccable service.</p>
+        </div>
+        <div class="about-us-image">
+            <img src="assets/images/kat_licking.jpeg" alt="Chez Kat Team">
+        </div>
+    </div>
+</div>
+
+<div id="section4" class="section contact">
+    <video autoplay muted loop id="background-video">
+        <source src="assets/videos/chezkat.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <h2>Contact Us</h2>
+    <form id="contact-form">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" placeholder="Your Message" required></textarea>
+        <button type="submit">Send</button>
+    </form>
+</div>
+<script src="assets/js/script.js"></script>
+<script src="assets/js/send_email.js"></script>
+</body>
+</html>

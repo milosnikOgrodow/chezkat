@@ -1,0 +1,670 @@
+:root {
+    --nav-icon-height: 50px;
+    --nav-height: 80px;
+    --nav-color: rgba(3, 39, 1, 1);
+  }
+
+
+/************/
+/* General */
+/************/
+
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    font-family: 'Open Sans';
+    /* Removed the fixed height of 100% */
+}
+
+h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+}
+
+.text-container {
+    flex: 1; /* Takes up the remaining space */
+    padding-left: 20px; /* Add some space between the text and image */
+}
+
+.text-container h2 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    color: #333; /* Adjust the color to match the website's theme */
+}
+
+.text-container p {
+    font-size: 1.8rem;
+    line-height: 1.6;
+    color: #555; /* Adjust the color to enhance readability */
+}
+
+.special-heading {
+    font-family: 'Pacifico', cursive;
+}
+
+.section {
+    height: 100vh;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    max-width: 100vw; /* Ensures sections don't exceed viewport width */
+    box-sizing: border-box; /* Includes padding and border in the element's total width and height */
+}
+
+/* Nav */
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    height: var(--nav-height);
+    width: 100%;
+    background-color: rgb(203 182 179);
+    opacity: 0.95;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+.logo-placeholder {
+    width: 100px;
+}
+
+.navbar-links {
+    position: absolute;
+    display: flex;
+}
+
+.navbar a {
+    /* position: relative; */
+    padding: 10px 25px;
+    text-decoration: none;
+    font-size: 1rem;
+    color: #ffffff;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+    /* left: 50%; */
+}
+
+.hamburger {
+    display: none;
+}
+
+.navbar .nav-icon img {
+    height: var(--nav-icon-height);
+    top: 5px;
+    width: auto;
+}
+
+@media screen and (max-width: 700px) {
+    .navbar {
+        display: flex;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        align-items: center;
+        height: var(--nav-height);
+        justify-content: flex-start; /* Align items to the start for space around the hamburger */
+        padding-left: 10px; /* Padding on the left for the hamburger */
+        background-color: rgba(3, 39, 1, 1); /* Semi-transparent background for visibility */
+    }
+
+    /* Ensures that the hamburger icon is always visible and correctly positioned */
+    .navbar .hamburger {
+        display: block;
+        position: absolute;
+        left: 10px;
+        top: 20px;
+    }
+
+    /* The company icon stays centered and visible */
+    .navbar .nav-icon.no-hide {
+        display: block;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 5px;
+    }
+
+    .navbar-links {
+        flex-direction: column;
+        left: 0px;
+        top: var(--nav-height);
+        background-color: var(--nav-color)
+    }
+
+    /* Hides links by default, shows them in responsive mode */
+    .navbar a:not(.no-hide), .navbar .nav-icon:not(.no-hide) {
+        display: none;
+    }
+
+    /* Adjustments when navbar becomes responsive */
+    .navbar.responsive .hamburger, .navbar.responsive .nav-icon.no-hide, .navbar.responsive a:not(.no-hide) {
+        display: block;
+    }
+
+    /* Ensures vertical stacking of navbar items in responsive mode */
+    .navbar.responsive {
+        flex-direction: column;
+    }
+
+
+    /* Text size adjustments for smaller screens */
+    .central-text h1 {
+        font-size: 3.5rem !important;
+    }
+
+h1 {}
+
+    .central-text p {
+        font-size: 1.2rem !important;
+    }
+
+    /* Adjustments for content containers on smaller screens */
+    .container, .image-container, .text-container {
+        flex-direction: column;
+        padding: 0;
+    }
+
+    .image-container {
+        padding-bottom: 20px; /* Adds spacing between the image and the text */
+    }
+}
+
+/* Section 1 - Home */
+
+#section1 {
+    position: relative;
+    overflow: hidden; /* This will ensure no overflow from the video */
+}
+
+.home-background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    width: 100%;
+    z-index: -1; 
+}
+
+.central-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff; /* Adjust color based on video */
+    text-align: center;
+    z-index: 2;
+}
+
+.central-text h1 {
+    font-size: 5rem; /* Large text size for the main heading */
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    text-shadow: 9px 6px 4px rgba(0, 0, 0, 0.5); /* Text shadow for better readability */
+}
+
+.central-text p {
+    font-size: 2rem; /* Smaller text size for the subtitle */
+    font-weight: bold;
+    margin-top: 100px;
+    text-shadow: 2px 5px 4px rgba(0, 0, 0, 0.5);
+}
+
+
+/* Section 2 */
+
+.menu-text {
+    height: 50%;
+    width:100%;
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columns */
+    gap: 20px; /* Adjust gap for spacing between boxes */
+    margin: 0 auto; /* Center the grid horizontally */
+    width: 96%; /* Adjust based on the reduced padding in .section */
+    height: calc(50vh - 40px); /* Adjust height to fill the screen, minus section padding */
+    box-sizing: border-box; /* Include padding in the calculation */
+}
+
+.menu-category {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    /* cursor: pointer; */
+    transition: background-color 0.3s;
+    background-size: contain; /* Make sure the whole image is visible */
+    background-position: center; /* Center the background image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    width: 100%; /* Adjust as needed */
+    height: 100%; /* Adjust based on your layout, could be a specific height */
+    box-sizing: border-box; /* Include padding and border */
+    overflow: hidden; /* Prevents any part of the content from overflowing its box */
+}
+
+.category-title {
+    height: 35px;
+    font-size: 1.5rem;
+    /* text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); */
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.category-logo {
+    /* display: flex; */
+    /* flex-direction: column; */
+    /* justify-content: center; */
+    /* align-items: center; */
+    /* text-align: center; */
+    cursor: pointer;
+    /* transition: background-color 0.3s; */
+    background-size: contain; /* Make sure the whole image is visible */
+    background-position: center; /* Center the background image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    width: 100%; /* Adjust as needed */
+    height: 100%; /* Adjust based on your layout, could be a specific height */
+    /* box-sizing: border-box; */ /* Include padding and border */
+    /* overflow: hidden; */ /* Prevents any part of the content from overflowing its box */
+}
+
+.category-description {
+    /* color: #fff; */ /* Choose a color that stands out */
+    font-size: 1rem; /* Adjust size as needed */
+    /* text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); */ /* Enhance legibility over any background */
+    z-index: 2; /* Ensure it's above the background image */
+    position: relative; /* Adjust based on layout needs */
+    padding: 10px; /* Optional padding */
+}
+
+.menu-category:hover {
+    background-color: #e0e0e0; /* Darker background on hover */
+}
+
+/* Responsive adjustments */
+@media (max-width: 700px) {
+    .menu-grid {
+        flex-wrap: wrap; /* Allow the items to wrap as needed */
+        justify-content: space-around; /* Distribute space around items */
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* Change to 2 columns */
+    }
+
+    .menu-category {
+        margin: 5px 0px 5px; /* Space between rows */
+    }
+
+    .category-description {
+        font-size: 0.7rem;
+    }
+}
+
+/* Modal */
+.modal {
+    display: none; /* Hide the modal by default */
+    position: fixed; /* Stay in place */
+    z-index: 99; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    top: calc(var(--nav-height) + 20px);
+    left: 10%;
+    /* margin-top: Calc(var(--nav-height)); */ /* for nav */
+    /* margin-left: 10%; */
+    padding: 20px 20px 50px 20px;
+    border: 1px solid #888;
+    width: 80%; /* Width as previously defined or adjust as needed */
+    height: 80vh; /* 80% of the viewport height */
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    position: relative; /* To be positioned inside the modal */
+    overflow-y: auto; /* Allows scrolling if content exceeds the height */
+    box-sizing: border-box; /* Ensures padding is included in the height calculation */
+    z-index: 99;
+}
+
+/* Carousel Container */
+.carousel {
+    position: relative;
+    margin: auto;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    /* padding-right: 20px; */
+}
+
+.carousel-slides {
+    /* width: 80%; */
+    height: 100%;
+}
+
+.slide-container {
+    height: 100%;
+}
+
+.slide {
+    display: flex;
+    align-items: center; /* Align items vertically */
+    justify-content: space-between; /* Distribute space between text and images */
+    height: 100%; /* Adjust height based on content */
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.slide-text {
+    width: 50%; /* Use less than half the slide's width for text */
+    height: 100%;
+    overflow-y: auto; /* Allow scrolling within text if needed */
+    padding-right: 20px; /* Add some spacing between the text and the images */
+}
+
+.slide-img-container-border-horiz {
+    height: 10px;
+    width: 100px;
+}
+
+.slide-img-container-border-vert {
+    width: 10px;
+    height: 100%;
+}
+
+.slide-img-container {
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    object-fit: cover;
+}
+
+.slide-images {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* This will space out the images evenly */
+    height: 100%; /* Make sure this is defined */
+    width: 35%; /* Adjust based on your layout */
+}
+
+.slide-image {
+    height: calc(50% - 10px); /* Adjust for two images, assuming you want some space between them */
+    width: 100%; /* Take up the full width of the container */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slide-images .slide-image:nth-child(3) {
+    display: none; /* Hide the third image by default */
+}
+
+.slide-images-img {
+    width: 100%; /* Cover the width of the .slide-image container */
+    height: 100%; /* Cover the height as well */
+    object-fit: cover; /* Cover the container without distorting the image */
+}
+
+/* Next & previous buttons */
+.prev, .next {
+    height: 20px;
+    width: 50px;
+    cursor: pointer;
+    position: absolute;
+    bottom: 3%;
+    /* left: calc(50%); */
+    /* width: auto; */
+    margin-top: -22px;
+    /* padding: 16px; */
+    color: white;
+    font-weight: bold;
+    font-size: 0.8rem;
+    text-align: center;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    border-radius: 3px 0 0 3px;
+}
+
+/* Position the "next button" to the right */
+.next {
+    background-color: #777;
+    right: 30%;
+    margin-right: 10px;
+}
+
+.prev {
+    background-color: #777;
+    left: calc(30%);
+    margin-left: 10px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+}
+
+/* The Close Button */
+.close-button {
+    cursor: pointer;
+    position: absolute;
+    color: #aaaaaa;
+    font-size: 40px;
+    right: 15px;
+    top: 0px;
+    font-weight: bold;
+    z-index: 100;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.menu-container {
+    position: absolute;
+    left: 40%;
+    height: 100%;
+    width: 55%;
+    text-align: center; /* Center everything in the menu */
+    font-family: 'Open Sans', sans-serif; /* Elegant, readable font */
+    /* max-width: 600px; */ /* Maximum width of the menu for readability */
+    margin: 0; /* Center the menu container on the page */
+    padding: 0px 15px; /* Padding around the menu for whitespace */
+    background: #fff; /* Optional: a background color */
+    border-radius: 10px; /* Optional: rounded corners for the menu container */
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */ /* Optional: subtle shadow for depth */
+}
+
+.company-icon img {
+    /* max-width: 150px; */ /* Adjust the size of the company icon as needed */
+    /* margin-bottom: 20px; */ /* Space below the icon */
+    height: 100px;
+}
+
+.sample-menu {
+    top: -10px;
+    position: relative;
+    font-size: 1.1rem; /* Larger font size for the menu title */
+    font-weight: bold;
+    color: #333; /* Dark color for contrast */
+    margin-bottom: 30px; /* Space below the menu title */
+    margin-block-start: 0%;
+    margin-block-end: 0%;
+}
+
+.menu-subtitle {
+    font-family: 'Playfair Display', serif; /* This is a more decorative font, which could fit a Valentine's theme */
+    color: #db7093; /* Soft pink color, commonly associated with Valentine's Day */
+    font-size: 1rem; /* A little smaller than the main title */
+    margin: 0; /* Remove default margins if any */
+    padding-bottom: 10px; /* Space below the subtitle */
+}
+
+.menu-items {
+    padding-inline-start:0;
+}
+
+.menu-items li {
+    position: relative; /* Needed for absolute positioning of the pseudo-element */
+    font-size: 1rem;
+    color: #444;
+    padding: 8px 0;
+    overflow: hidden; /* Ensures the pseudo-element is clipped */
+}
+
+.menu-items li::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px; /* Height of the border */
+    background: linear-gradient(to right, rgba(234, 234, 234, 0), #eaeaea 50%, rgba(234, 234, 234, 0));
+    /* Gradient starts and ends transparent, with solid color in the middle */
+}
+
+.menu-items li:last-child {
+    border-bottom: none; /* Remove border from the last item */
+}
+
+/* Adjustments for smaller screens */
+@media (max-width: 700px) {
+    .slide-images .slide-image {
+        height: calc(33.333% - 10px); /* Adjust for three images */
+    }
+
+    .slide-images .slide-image:nth-child(3) {
+        display: block; /* Show the third image for smaller screens */
+    }
+
+    .menu-items li {
+        font-size: 0.7rem;
+    }
+}
+
+/* Section about us */
+
+.section.about-us {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: left;
+    padding: 4rem;
+    background-color: #f7f7f7; /* Light background for a fresh look */
+}
+
+.about-us-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 20px;
+    max-width: 1200px;
+}
+
+.about-us-text h2 {
+    font-family: 'Playfair Display', serif;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.about-us-text p {
+    font-family: 'Lora', serif;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.about-us-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px; /* Soften the edges for a more polished look */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Subtle shadow for depth */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .about-us-container {
+        grid-template-columns: 1fr; /* Stack text and image vertically on smaller screens */
+        height: 100%;
+    }
+
+    .about-us-text, .about-us-image {
+        width: 100%; /* Adjust for smaller screens */
+        padding: 0 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-us-row {
+        flex-direction: column; /* Stack the image and text vertically */
+        align-items: center; /* Center-align the content for a better look */
+    }
+
+    .about-us-text, .about-us-image {
+        width: 100%; /* Adjust the width to provide some padding on the sides */
+        padding: 1rem 0; /* Add some vertical padding between items */
+        text-align: center; /* Center-align the text for a cohesive look */
+    }
+
+    .about-us-text h2 {
+        font-size: 2rem; /* Slightly reduce the font size for smaller screens */
+    }
+
+    .about-us-text p {
+        font-size: 0.8rem; /* Ensure the paragraph text is readable on small screens */
+    }
+
+    .about-us-image img {
+        max-width: 100%; /* Allow the image to fill the container width */
+        max-height: none; /* Remove the max-height restriction for flexibility */
+    }
+
+    .about-us-row {
+        height: auto; /* Allow the row's height to adjust based on its content */
+    }
+}
+/* Section 4 - Contact */
+
+#section4 {
+    position: relative; /* Added */
+    width: 100vw; /* Ensure it covers the viewport width */
+    height: 100vh; /* Adjust height as needed */
+    overflow: hidden; /* Prevent video overflow */
+}
+
+#background-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center the video */
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -1; /* Ensure it's behind the content */
+}
+
+#section4::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5); /* Dark overlay for readability */
+    z-index: -1; /* Just below the content, above the video */
+}
